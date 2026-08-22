@@ -1,0 +1,331 @@
+import { Product, InventoryTransaction, Sale, Notification, Shop, Profile } from '@/types';
+
+// Helper to create future date strings (YYYY-MM-DD)
+const getFutureDateString = (days: number): string => {
+  const d = new Date(Date.now() + days * 86400000);
+  return d.toISOString().split('T')[0];
+};
+
+export const DEMO_PROFILE: Profile = {
+  id: 'demo-owner-uuid-1',
+  full_name: 'Karthik Raja',
+  phone: '+91 98765 43210',
+  language_preference: 'tanglish',
+  created_at: new Date(Date.now() - 30 * 86400000).toISOString(),
+};
+
+export const DEMO_SHOP: Shop = {
+  id: 'demo-shop-uuid-1',
+  owner_id: 'demo-owner-uuid-1',
+  name: 'Murugan Stores',
+  business_type: 'Kirana & Provision Store',
+  address: 'No. 42, North Mada Street, Mylapore, Chennai',
+  phone: '+91 98765 43210',
+  currency: 'INR',
+  created_at: new Date(Date.now() - 30 * 86400000).toISOString(),
+};
+
+export const INITIAL_PRODUCTS: Product[] = [
+  {
+    id: 'prod-maggi',
+    shop_id: 'demo-shop-uuid-1',
+    name: 'Maggi 2-Minute Noodles',
+    tamil_name: 'மேகி நூடுல்ஸ்',
+    category: 'Snacks & Instant Food',
+    quantity: 5,
+    unit: 'packet',
+    minimum_quantity: 12,
+    selling_price: 14,
+    purchase_price: 11.5,
+    expiry_date: getFutureDateString(180), // 6 months
+    barcode: '8901058852331',
+    is_active: true,
+    created_at: new Date(Date.now() - 20 * 86400000).toISOString(),
+  },
+  {
+    id: 'prod-coke',
+    shop_id: 'demo-shop-uuid-1',
+    name: 'Coca-Cola 500ml',
+    tamil_name: 'கோக் 500ml',
+    category: 'Cold Drinks & Beverages',
+    quantity: 8,
+    unit: 'bottle',
+    minimum_quantity: 10,
+    selling_price: 40,
+    purchase_price: 32,
+    expiry_date: getFutureDateString(120), // 4 months
+    barcode: '8901764012231',
+    is_active: true,
+    created_at: new Date(Date.now() - 20 * 86400000).toISOString(),
+  },
+  {
+    id: 'prod-rice',
+    shop_id: 'demo-shop-uuid-1',
+    name: 'Ponni Boiled Rice (25kg)',
+    tamil_name: 'பொன்னி புழுங்கல் அரிசி',
+    category: 'Grains & Staples',
+    quantity: 35,
+    unit: 'kg',
+    minimum_quantity: 20,
+    selling_price: 58,
+    purchase_price: 48,
+    expiry_date: getFutureDateString(365), // 1 year
+    barcode: '8901234567890',
+    is_active: true,
+    created_at: new Date(Date.now() - 20 * 86400000).toISOString(),
+  },
+  {
+    id: 'prod-tata-salt',
+    shop_id: 'demo-shop-uuid-1',
+    name: 'Tata Salt 1kg',
+    tamil_name: 'டாடா உப்பு 1kg',
+    category: 'Cooking Essentials',
+    quantity: 24,
+    unit: 'packet',
+    minimum_quantity: 10,
+    selling_price: 28,
+    purchase_price: 22,
+    expiry_date: getFutureDateString(720), // 2 years
+    barcode: '8901030383344',
+    is_active: true,
+    created_at: new Date(Date.now() - 20 * 86400000).toISOString(),
+  },
+  {
+    id: 'prod-parleg',
+    shop_id: 'demo-shop-uuid-1',
+    name: 'Parle-G Gold Biscuits',
+    tamil_name: 'பார்லே-ஜி பிஸ்கட்',
+    category: 'Snacks & Biscuits',
+    quantity: 45,
+    unit: 'packet',
+    minimum_quantity: 15,
+    selling_price: 10,
+    purchase_price: 8,
+    expiry_date: getFutureDateString(90), // 3 months
+    barcode: '8901719101011',
+    is_active: true,
+    created_at: new Date(Date.now() - 20 * 86400000).toISOString(),
+  },
+  {
+    id: 'prod-fortune-oil',
+    shop_id: 'demo-shop-uuid-1',
+    name: 'Fortune Sunflower Oil 1L',
+    tamil_name: 'பார்ச்சூன் சன்பிளவர் எண்ணெய் 1L',
+    category: 'Cooking Essentials',
+    quantity: 4,
+    unit: 'packet',
+    minimum_quantity: 8,
+    selling_price: 135,
+    purchase_price: 118,
+    expiry_date: getFutureDateString(240), // 8 months
+    barcode: '8906007280145',
+    is_active: true,
+    created_at: new Date(Date.now() - 20 * 86400000).toISOString(),
+  },
+  {
+    id: 'prod-atta',
+    shop_id: 'demo-shop-uuid-1',
+    name: 'Aashirvaad Shahi Atta 5kg',
+    tamil_name: 'ஆசீர்வாத் கோதுமை மாவு 5kg',
+    category: 'Grains & Staples',
+    quantity: 9,
+    unit: 'bag',
+    minimum_quantity: 6,
+    selling_price: 260,
+    purchase_price: 225,
+    expiry_date: getFutureDateString(60), // 2 months
+    barcode: '8901030010022',
+    is_active: true,
+    created_at: new Date(Date.now() - 20 * 86400000).toISOString(),
+  },
+  {
+    id: 'prod-toor-dal',
+    shop_id: 'demo-shop-uuid-1',
+    name: 'Premium Toor Dal 1kg',
+    tamil_name: 'துவரம் பருப்பு 1kg',
+    category: 'Pulses & Dals',
+    quantity: 14,
+    unit: 'kg',
+    minimum_quantity: 10,
+    selling_price: 160,
+    purchase_price: 138,
+    expiry_date: getFutureDateString(150),
+    barcode: '8901456789012',
+    is_active: true,
+    created_at: new Date(Date.now() - 20 * 86400000).toISOString(),
+  },
+  {
+    id: 'prod-dairy-milk',
+    shop_id: 'demo-shop-uuid-1',
+    name: 'Cadbury Dairy Milk 50g',
+    tamil_name: 'டெய்ரி மில்க் சாக்லேட்',
+    category: 'Chocolates & Confectionery',
+    quantity: 2,
+    unit: 'piece',
+    minimum_quantity: 10,
+    selling_price: 45,
+    purchase_price: 36,
+    expiry_date: getFutureDateString(14), // Expiring in 14 days (alert condition)
+    barcode: '7622201402231',
+    is_active: true,
+    created_at: new Date(Date.now() - 20 * 86400000).toISOString(),
+  }
+];
+
+export const INITIAL_TRANSACTIONS: InventoryTransaction[] = [
+  {
+    id: 'tx-1',
+    shop_id: 'demo-shop-uuid-1',
+    product_id: 'prod-rice',
+    product_name: 'Ponni Boiled Rice (25kg)',
+    type: 'IN',
+    quantity: 20,
+    balance_after: 35,
+    source: 'VOICE',
+    note: 'Voice stock arrival entry: "20 kilo rice vandhirukku"',
+    created_at: new Date(Date.now() - 3 * 3600000).toISOString(),
+  },
+  {
+    id: 'tx-2',
+    shop_id: 'demo-shop-uuid-1',
+    product_id: 'prod-coke',
+    product_name: 'Coca-Cola 500ml',
+    type: 'OUT',
+    quantity: 5,
+    balance_after: 8,
+    source: 'VOICE',
+    note: 'Voice sale entry: "5 Coke sale panniten"',
+    created_at: new Date(Date.now() - 2 * 3600000).toISOString(),
+  },
+  {
+    id: 'tx-3',
+    shop_id: 'demo-shop-uuid-1',
+    product_id: 'prod-maggi',
+    product_name: 'Maggi 2-Minute Noodles',
+    type: 'IN',
+    quantity: 10,
+    balance_after: 15,
+    source: 'VOICE',
+    note: 'Voice delivery arrival: "+10 Maggi"',
+    created_at: new Date(Date.now() - 1 * 3600000).toISOString(),
+  },
+  {
+    id: 'tx-4',
+    shop_id: 'demo-shop-uuid-1',
+    product_id: 'prod-fortune-oil',
+    product_name: 'Fortune Sunflower Oil 1L',
+    type: 'OUT',
+    quantity: 3,
+    balance_after: 4,
+    source: 'MANUAL',
+    note: 'Counter sale',
+    created_at: new Date(Date.now() - 30 * 60000).toISOString(),
+  }
+];
+
+export const INITIAL_SALES: Sale[] = [
+  {
+    id: 'sale-1',
+    shop_id: 'demo-shop-uuid-1',
+    total_amount: 200,
+    items_count: 5,
+    payment_mode: 'UPI',
+    source: 'VOICE',
+    customer_note: 'Voice bill: 5 Coke sale panniten',
+    items: [
+      {
+        id: 'item-1',
+        sale_id: 'sale-1',
+        product_id: 'prod-coke',
+        product_name: 'Coca-Cola 500ml',
+        quantity: 5,
+        unit: 'bottle',
+        unit_price: 40,
+        total_price: 200,
+      }
+    ],
+    created_at: new Date(Date.now() - 2 * 3600000).toISOString(),
+  },
+  {
+    id: 'sale-2',
+    shop_id: 'demo-shop-uuid-1',
+    total_amount: 405,
+    items_count: 3,
+    payment_mode: 'CASH',
+    source: 'MANUAL',
+    items: [
+      {
+        id: 'item-2',
+        sale_id: 'sale-2',
+        product_id: 'prod-fortune-oil',
+        product_name: 'Fortune Sunflower Oil 1L',
+        quantity: 3,
+        unit: 'packet',
+        unit_price: 135,
+        total_price: 405,
+      }
+    ],
+    created_at: new Date(Date.now() - 30 * 60000).toISOString(),
+  },
+  {
+    id: 'sale-3',
+    shop_id: 'demo-shop-uuid-1',
+    total_amount: 140,
+    items_count: 10,
+    payment_mode: 'UPI',
+    source: 'VOICE',
+    customer_note: 'Voice bill: 10 Maggi sale',
+    items: [
+      {
+        id: 'item-3',
+        sale_id: 'sale-3',
+        product_id: 'prod-maggi',
+        product_name: 'Maggi 2-Minute Noodles',
+        quantity: 10,
+        unit: 'packet',
+        unit_price: 14,
+        total_price: 140,
+      }
+    ],
+    created_at: new Date(Date.now() - 15 * 60000).toISOString(),
+  }
+];
+
+export const INITIAL_NOTIFICATIONS: Notification[] = [
+  {
+    id: 'notif-1',
+    shop_id: 'demo-shop-uuid-1',
+    title: 'Low Stock Alert: Coca-Cola 500ml',
+    message: 'Coke is down to 8 bottles. Minimum required: 10. Restocking recommended.',
+    tamil_message: '🔴 கோக் 8 பாட்டில்கள் மட்டுமே உள்ளது. குறைந்தபட்சம்: 10. மறுஆர்டர் செய்யவும்.',
+    type: 'LOW_STOCK',
+    product_id: 'prod-coke',
+    product_name: 'Coca-Cola 500ml',
+    is_read: false,
+    created_at: new Date(Date.now() - 2 * 3600000).toISOString(),
+  },
+  {
+    id: 'notif-2',
+    shop_id: 'demo-shop-uuid-1',
+    title: 'Low Stock Alert: Fortune Sunflower Oil 1L',
+    message: 'Fortune Sunflower Oil 1L is down to 4 packets. Minimum required: 8.',
+    tamil_message: '🔴 பார்ச்சூன் எண்ணெய் 4 பாக்கெட்டுகள் மட்டுமே உள்ளது. உடனே வாங்கவும்.',
+    type: 'LOW_STOCK',
+    product_id: 'prod-fortune-oil',
+    product_name: 'Fortune Sunflower Oil 1L',
+    is_read: false,
+    created_at: new Date(Date.now() - 30 * 60000).toISOString(),
+  },
+  {
+    id: 'notif-3',
+    shop_id: 'demo-shop-uuid-1',
+    title: 'Expiring Soon: Cadbury Dairy Milk',
+    message: 'Cadbury Dairy Milk batch is expiring in 14 days. Discounting or front shelf recommended.',
+    tamil_message: '⚠️ டெய்ரி மில்க் இன்னும் 14 நாட்களில் காலாவதியாகிறது!',
+    type: 'EXPIRY_ALERT',
+    product_id: 'prod-dairy-milk',
+    product_name: 'Cadbury Dairy Milk 50g',
+    is_read: false,
+    created_at: new Date(Date.now() - 1 * 3600000).toISOString(),
+  }
+];
