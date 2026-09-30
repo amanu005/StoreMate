@@ -4,11 +4,11 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { LayoutDashboard, Package, ShoppingCart, Mic, FileText } from 'lucide-react';
-import { useNammaKadai } from '@/lib/store';
+import { useStoreMate } from '@/lib/store';
 
 export function MobileBottomNav() {
   const pathname = usePathname();
-  const { language, setVoiceModalOpen } = useNammaKadai();
+  const { language, setVoiceModalOpen } = useStoreMate();
 
   const tabs = [
     {

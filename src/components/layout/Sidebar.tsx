@@ -14,11 +14,11 @@ import {
   Sparkles,
   ChevronRight
 } from 'lucide-react';
-import { useNammaKadai } from '@/lib/store';
+import { useStoreMate } from '@/lib/store';
 
 export function Sidebar() {
   const pathname = usePathname();
-  const { unreadNotificationsCount, language } = useNammaKadai();
+  const { unreadNotificationsCount, language } = useStoreMate();
 
   const navItems = [
     {

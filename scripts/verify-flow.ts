@@ -2,7 +2,7 @@ import { parseVoiceIntent } from '../src/lib/intent-matcher';
 import { INITIAL_PRODUCTS } from '../src/lib/demo-data';
 
 console.log('================================================================');
-console.log('  NAMMA KADAI - COMPLETE 9-FEATURE END-TO-END VERIFICATION TEST ');
+console.log('  StoreMate - COMPLETE 9-FEATURE END-TO-END VERIFICATION TEST ');
 console.log('================================================================\n');
 
 let products = JSON.parse(JSON.stringify(INITIAL_PRODUCTS));

@@ -12,4 +12,4 @@ export const isSupabaseConfigured = Boolean(
 // Fallback client for builds and zero-config local demos
 export const supabase = isSupabaseConfigured
   ? createClient(supabaseUrl, supabaseAnonKey)
-  : createClient('https://mock-namma-kadai.supabase.co', 'mock-anon-key-for-local-demo');
+  : createClient('https://mock-storemate.supabase.co', 'mock-anon-key-for-local-demo');

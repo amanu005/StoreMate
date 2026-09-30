@@ -1,11 +1,11 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.nammakadai.app',
-  appName: 'Namma Kadai',
+  appId: 'com.storemate.app',
+  appName: 'StoreMate',
   webDir: 'public',
   server: {
-    url: 'https://namma-kadai-rho.vercel.app',
+    url: 'https://storemate-rho.vercel.app',
     cleartext: false
   }
 };

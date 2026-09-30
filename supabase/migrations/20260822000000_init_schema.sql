@@ -1,5 +1,5 @@
 -- ==========================================================
--- Namma Kadai (நம்ம கடை) - Database Schema Migration
+-- StoreMate (நம்ம கடை) - Database Schema Migration
 -- Production-ready PostgreSQL schema with RLS & Triggers
 -- ==========================================================
 

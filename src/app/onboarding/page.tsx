@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Store, User, Building2, CheckCircle2, ArrowRight, ArrowLeft, Sparkles } from 'lucide-react';
-import { useNammaKadai } from '@/lib/store';
+import { useStoreMate } from '@/lib/store';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
@@ -12,7 +12,7 @@ import confetti from 'canvas-confetti';
 
 export default function OnboardingPage() {
   const router = useRouter();
-  const { updateShop, updateProfile, language } = useNammaKadai();
+  const { updateShop, updateProfile, language } = useStoreMate();
 
   const [step, setStep] = useState(1);
   const [shopName, setShopName] = useState('Murugan Stores');
@@ -170,7 +170,7 @@ export default function OnboardingPage() {
               rightIcon={step === 4 ? <CheckCircle2 className="w-5 h-5" /> : <ArrowRight className="w-5 h-5" />}
               className="font-bold min-h-[50px] px-7"
             >
-              {step === 4 ? 'Start using Namma Kadai' : 'Continue'}
+              {step === 4 ? 'Start using StoreMate' : 'Continue'}
             </Button>
           </div>
         </Card>

@@ -13,7 +13,7 @@ import {
   Smartphone,
   Globe
 } from 'lucide-react';
-import { useNammaKadai } from '@/lib/store';
+import { useStoreMate } from '@/lib/store';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
@@ -29,7 +29,7 @@ export default function SettingsPage() {
     language, 
     setLanguage, 
     resetDemoData 
-  } = useNammaKadai();
+  } = useStoreMate();
 
   const [shopName, setShopName] = useState(shop.name);
   const [ownerName, setOwnerName] = useState(profile.full_name);

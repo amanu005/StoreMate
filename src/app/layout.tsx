@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import { NammaKadaiProvider } from '@/lib/store';
+import { StoreMateProvider } from '@/lib/store';
 import { AppLayout } from '@/components/layout/AppLayout';
 
 export const metadata: Metadata = {
-  title: 'Namma Kadai (நம்ம கடை) - Your shop. Your voice. Your business.',
+  title: 'StoreMate (ஸ்டோர் மேட்) - Your shop. Your voice. Your business.',
   description: 'AI-integrated voice inventory and business management app for Indian shop owners. Speak in Tamil or Tanglish.',
   icons: {
     icon: '/favicon.ico',
@@ -27,9 +27,9 @@ export default function RootLayout({
   return (
     <html lang="ta" className="light">
       <body className="bg-slate-50 text-slate-900 min-h-screen">
-        <NammaKadaiProvider>
+        <StoreMateProvider>
           <AppLayout>{children}</AppLayout>
-        </NammaKadaiProvider>
+        </StoreMateProvider>
       </body>
     </html>
   );

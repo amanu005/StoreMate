@@ -17,7 +17,7 @@ import {
   Calendar,
   Clock
 } from 'lucide-react';
-import { useNammaKadai } from '@/lib/store';
+import { useStoreMate } from '@/lib/store';
 import { Product, ProductUnit } from '@/types';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
@@ -38,7 +38,7 @@ export default function InventoryPage() {
     getProductStockStatus,
     getProductExpiryDaysRemaining,
     language 
-  } = useNammaKadai();
+  } = useStoreMate();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');

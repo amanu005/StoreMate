@@ -16,7 +16,7 @@ import {
   Flame,
   Calendar
 } from 'lucide-react';
-import { useNammaKadai } from '@/lib/store';
+import { useStoreMate } from '@/lib/store';
 import { VoiceMicHero } from '@/components/voice/VoiceMicHero';
 import { Card } from '@/components/ui/Card';
 import { Badge, StockStatusBadge } from '@/components/ui/Badge';
@@ -33,7 +33,7 @@ export default function DashboardPage() {
     getProductStockStatus,
     getStockVelocityInsights,
     addStock 
-  } = useNammaKadai();
+  } = useStoreMate();
 
   const [restockingId, setRestockingId] = useState<string | null>(null);
 

@@ -17,13 +17,13 @@ import {
   ListTodo,
   Clock
 } from 'lucide-react';
-import { useNammaKadai } from '@/lib/store';
+import { useStoreMate } from '@/lib/store';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { StockStatusBadge } from '@/components/ui/Badge';
 
 export default function DailySummaryPage() {
-  const { getDailySummary, shop, profile, language } = useNammaKadai();
+  const { getDailySummary, shop, profile, language } = useStoreMate();
   const summary = getDailySummary();
 
   const [copied, setCopied] = useState(false);
@@ -49,7 +49,7 @@ export default function DailySummaryPage() {
 📋 *Tomorrow's Priorities:*
 ${summary.tomorrowPriorities.map((p, i) => `${i + 1}. ${p.title}`).join('\n')}
 
-_Generated via Namma Kadai AI 🎙️_`;
+_Generated via StoreMate AI 🎙️_`;
   };
 
   const handleCopyReport = () => {

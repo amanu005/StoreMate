@@ -3,16 +3,16 @@
 import React from 'react';
 import { Modal } from '@/components/ui/Modal';
 import { VoiceMicHero } from '@/components/voice/VoiceMicHero';
-import { useNammaKadai } from '@/lib/store';
+import { useStoreMate } from '@/lib/store';
 
 export function VoiceModal() {
-  const { isVoiceModalOpen, setVoiceModalOpen, language } = useNammaKadai();
+  const { isVoiceModalOpen, setVoiceModalOpen, language } = useStoreMate();
 
   return (
     <Modal
       isOpen={isVoiceModalOpen}
       onClose={() => setVoiceModalOpen(false)}
-      title={language === 'ta' ? 'நம்ம கடை குரல் உதவியாளர்' : 'Namma Kadai Voice Assistant'}
+      title={language === 'ta' ? 'StoreMate குரல் உதவியாளர்' : 'StoreMate Voice Assistant'}
       subtitle={language === 'ta' ? 'தமிழ் அல்லது Tanglish-ல் பேசவும்' : 'Speak naturally in Tamil or Tanglish'}
       maxWidth="lg"
     >

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # StoreMate
+=======
+# StoreMate (நம்ம கடை)
+>>>>>>> 3b3a3d5 (Update StoreMate product)
 > **“Your shop. Your voice. Your business.”**
 
 A production-quality, mobile-first AI-integrated inventory and business management web application built for small and unorganized Indian shop owners (Kirana stores, provisional stores, petty shops).

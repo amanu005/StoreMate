@@ -24,9 +24,9 @@ import {
   DEMO_PROFILE 
 } from '@/lib/demo-data';
 
-const STORAGE_KEY = 'namma_kadai_store_v2';
+const STORAGE_KEY = 'storemate_store_v2';
 
-interface NammaKadaiContextType {
+interface StoreMateContextType {
   products: Product[];
   transactions: InventoryTransaction[];
   sales: Sale[];
@@ -68,9 +68,9 @@ interface NammaKadaiContextType {
   getDailySummary: () => DailySummaryData;
 }
 
-const NammaKadaiContext = createContext<NammaKadaiContextType | null>(null);
+const StoreMateContext = createContext<StoreMateContextType | null>(null);
 
-export function NammaKadaiProvider({ children }: { children: React.ReactNode }) {
+export function StoreMateProvider({ children }: { children: React.ReactNode }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [products, setProducts] = useState<Product[]>(INITIAL_PRODUCTS);
   const [transactions, setTransactions] = useState<InventoryTransaction[]>(INITIAL_TRANSACTIONS);
@@ -531,7 +531,7 @@ export function NammaKadaiProvider({ children }: { children: React.ReactNode }) 
   }, [sales, products, getStockVelocityInsights]);
 
   return (
-    <NammaKadaiContext.Provider
+    <StoreMateContext.Provider
       value={{
         products,
         transactions,
@@ -565,14 +565,14 @@ export function NammaKadaiProvider({ children }: { children: React.ReactNode }) 
       }}
     >
       {children}
-    </NammaKadaiContext.Provider>
+    </StoreMateContext.Provider>
   );
 }
 
-export function useNammaKadai() {
-  const context = useContext(NammaKadaiContext);
+export function useStoreMate() {
+  const context = useContext(StoreMateContext);
   if (!context) {
-    throw new Error('useNammaKadai must be used within a NammaKadaiProvider');
+    throw new Error('useStoreMate must be used within a StoreMateProvider');
   }
   return context;
 }

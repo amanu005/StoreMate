@@ -14,7 +14,7 @@ import {
   ArrowUpRight,
   PackageCheck
 } from 'lucide-react';
-import { useNammaKadai } from '@/lib/store';
+import { useStoreMate } from '@/lib/store';
 import { PaymentMode } from '@/types';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
@@ -24,7 +24,7 @@ import { Modal } from '@/components/ui/Modal';
 import confetti from 'canvas-confetti';
 
 export default function SalesPage() {
-  const { sales, products, recordSale, getStockVelocityInsights, language } = useNammaKadai();
+  const { sales, products, recordSale, getStockVelocityInsights, language } = useStoreMate();
 
   const [isSaleModalOpen, setIsSaleModalOpen] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(products[0]?.id || '');

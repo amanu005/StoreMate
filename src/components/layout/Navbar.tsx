@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Bell, Mic, Globe, Store } from 'lucide-react';
-import { useNammaKadai } from '@/lib/store';
+import { useStoreMate } from '@/lib/store';
 
 export function Navbar() {
   const pathname = usePathname();
@@ -14,7 +14,7 @@ export function Navbar() {
     language, 
     setLanguage, 
     setVoiceModalOpen 
-  } = useNammaKadai();
+  } = useStoreMate();
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
@@ -29,10 +29,10 @@ export function Navbar() {
               <div>
                 <div className="flex items-center gap-1.5">
                   <h1 className="text-lg font-extrabold text-slate-900 leading-tight">
-                    Namma Kadai
+                    StoreMate
                   </h1>
                   <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md border border-emerald-200">
-                    நம்ம கடை
+                    ஸ்டோர் மேட்
                   </span>
                 </div>
                 <p className="text-xs text-slate-500 font-medium truncate max-w-[140px] sm:max-w-[220px]">

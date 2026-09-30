@@ -2,12 +2,12 @@
 
 import React from 'react';
 import { Sparkles, Mic, Volume2, ShieldCheck, Zap } from 'lucide-react';
-import { useNammaKadai } from '@/lib/store';
+import { useStoreMate } from '@/lib/store';
 import { VoiceMicHero } from '@/components/voice/VoiceMicHero';
 import { Card } from '@/components/ui/Card';
 
 export default function VoiceAssistantPage() {
-  const { language } = useNammaKadai();
+  const { language } = useStoreMate();
 
   return (
     <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8 animate-in fade-in duration-300">
@@ -18,7 +18,7 @@ export default function VoiceAssistantPage() {
           <span>Hero Feature • AI Voice Engine</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-          Namma Kadai Assistant
+          StoreMate Assistant
         </h1>
         <p className="text-base sm:text-lg text-slate-600 font-medium">
           Speak naturally in Tamil or Tanglish. (தமிழ் அல்லது Tanglish-ல் பேசவும்)

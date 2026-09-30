@@ -18,7 +18,7 @@ import {
   TrendingDown,
   Calendar
 } from 'lucide-react';
-import { useNammaKadai } from '@/lib/store';
+import { useStoreMate } from '@/lib/store';
 import { voiceService } from '@/lib/voice-service';
 import { parseVoiceIntent } from '@/lib/intent-matcher';
 import { AudioVisualizer } from '@/components/ui/AudioVisualizer';
@@ -35,7 +35,7 @@ interface VoiceMicHeroProps {
 }
 
 export function VoiceMicHero({ onSuccessAction, showChips = true }: VoiceMicHeroProps) {
-  const { products, addStock, recordSale, language, getStockVelocityInsights } = useNammaKadai();
+  const { products, addStock, recordSale, language, getStockVelocityInsights } = useStoreMate();
 
   const [isRecording, setIsRecording] = useState(false);
   const [audioVolume, setAudioVolume] = useState(0);

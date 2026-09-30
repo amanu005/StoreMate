@@ -37,7 +37,7 @@ export default function AuthPage() {
             <Store className="w-8 h-8" />
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            Namma Kadai (நம்ம கடை)
+            StoreMate (ஸ்டோர் மேட்)
           </h1>
           <p className="text-sm text-slate-600 font-medium">
             “Your shop. Your voice. Your business.”

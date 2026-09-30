@@ -13,7 +13,7 @@ import {
   Check,
   Plus
 } from 'lucide-react';
-import { useNammaKadai } from '@/lib/store';
+import { useStoreMate } from '@/lib/store';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 
@@ -26,7 +26,7 @@ export default function NotificationsPage() {
     addStock, 
     products, 
     language 
-  } = useNammaKadai();
+  } = useStoreMate();
 
   const [activeFilter, setActiveFilter] = useState<'ALL' | 'UNREAD' | 'LOW_STOCK'>('ALL');
   const [restockedMap, setRestockedMap] = useState<Record<string, boolean>>({});

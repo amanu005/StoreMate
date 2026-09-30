@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
     // If an external LLM API Key is configured, we can query OpenAI/Gemini/Anthropic
     if (llmApiKey && !llmApiKey.includes('your-llm')) {
       try {
-        const systemPrompt = `You are the AI brain of "Namma Kadai" (a voice inventory app for Indian Kirana shop owners).
+        const systemPrompt = `You are the AI brain of "StoreMate" (a voice inventory app for Indian Kirana shop owners).
 Analyze the Tamil/Tanglish/English voice transcript and output ONLY valid JSON matching this schema:
 {
   "action": "ADD_STOCK" | "RECORD_SALE" | "CHECK_STOCK" | "LOW_STOCK_REPORT" | "UNKNOWN",
