@@ -1,15 +1,15 @@
-# Namma Kadai (நம்ம கடை)
+# StoreMate
 > **“Your shop. Your voice. Your business.”**
 
 A production-quality, mobile-first AI-integrated inventory and business management web application built for small and unorganized Indian shop owners (Kirana stores, provisional stores, petty shops).
 
-Manage inventory, sales, stock tracking, and reorders through natural **Tamil and Tanglish voice commands** without complex forms or cluttered ERP menus.
+Manage inventory, sales, stock tracking, and reorders through natural **Native Language voice commands** without complex forms or cluttered ERP menus.
 
 ---
 
 ## 🌟 Key Features
 
-1. **🎙️ Hero Voice Assistant (Tamil & Tanglish First)**
+1. **🎙️ Hero Voice Assistant (Tamil & English First)**
    - Speak naturally:
      - *“20 packets Maggi வந்திருக்கு”* (Stock In)
      - *“5 Coke sale panniten”* (Record Sale)
