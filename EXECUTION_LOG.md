@@ -1,4 +1,4 @@
-# StoreMate (நம்ம கடை) - Final Execution & Build Log
+# StoreMate  - Final Execution & Build Log
 
 **Session Timestamp:** 2026-08-25
 **Project Path:** `C:\Users\Shajith\.gemini\antigravity\scratch\storemate`
